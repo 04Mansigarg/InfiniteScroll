@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #containerDiv {
+            width: 30%;
+            overflow-y: scroll;
+            color: white;
+            background-color: black;
+            margin: auto;
+            border: 20px solid rgb(84, 8, 8);
+            margin-top: 15px;
+            height: 450px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containerDiv"></div>
+</body>
+
+</html>
+<script>
+    let divContent = document.getElementById("containerDiv")
+
+    var w = 0
+    const loadContent = function () {
+        for (var i = 1; i <= 25; i++) {
+            var h2 = document.createElement("h2")
+            h2.append(`Masai Student ${++w}`)
+            divContent.append(h2)
+        }
+    }
+
+    loadContent()
+
+    divContent.addEventListener("scroll", () =>{
+        if(divContent.clientHeight + Math.abs(divContent.scrollTop) <= Math.abs(divContent.scrollHeight)  ){
+        loadContent()
+        }
+    }
+    )
+
+
+</script>
